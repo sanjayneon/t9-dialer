@@ -9,12 +9,13 @@ Type on the keypad and it finds contacts by name, by initials, or by any part of
 - **T9 name search.** Matches the start of any word ("363" finds John **Doe**), runs across words ("56463" finds **John D**oe), and matches initials ("53" finds **J**ohn **D**oe). English and Russian names both work, and accented letters match their plain form. Type `*` to stand for any letters: "5*3" finds J… D….
 - **Number search.** Any part of a number matches, with or without the country code or a leading 0.
 - **Two sections.** Matching call log entries come first, then contacts, ranked by match quality, how often you call them and how recently.
-- **Recent calls** with an empty keypad, repeated calls grouped ("Mum (3)"), missed calls in red.
+- **Home views.** Switch between Call log, Contacts, Favourites and Frequently called with the chips at the top. The app always opens on the one chosen in Settings > General > Default view (Call log unless you change it). Repeated calls are grouped ("Mum (3)") and missed calls are red.
 - **Keyboard search.** The search icon at the top lets you type letters with your phone's keyboard instead.
-- **Compact keypad** with the call button beside the number, leaving more room for results. Dial tones follow your phone's setting.
+- **Compact keypad** with the call button beside the number, leaving more room for results. Dial tones follow your phone's setting; key vibration has its own Vibrate on tap tick box and Vibrate duration (system default or 10 to 200 ms) in Settings.
 - **Gestures.** Swipe the keypad down to hide it, up to show it. Swipe a row right to call, left to message.
 - **Speed dial.** Long-press a contact, choose Set speed dial and pick 2 to 99. Long-press 2 to 9 to call; for 10 to 99, tap the first digit and long-press the second.
 - **Key shortcuts.** Long-press 1 for voicemail, 0 for +, * to switch the keypad letters between English and Russian, # for settings. Long-press call to dial with your long-press prefix.
+- **Tap a search result** to open the contact's details (or turn this off in Settings to call instead).
 - **Long-press any row** to message, copy, edit the number before calling, set speed dial, open the contact, add an unknown number, or look it up online.
 - **Settings.** A prefix for every call, a separate prefix on long-press of call (for example +91), the web address used to look up unknown numbers, swipe actions on or off, keypad letters, and your speed dials.
 - Light and dark themes, edge-to-edge layout as Android 16 requires. Opens from `tel:` links.
