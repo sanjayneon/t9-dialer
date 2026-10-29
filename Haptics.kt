@@ -14,6 +14,6 @@ fun vibrateFor(context: Context, ms: Int) {
     } else {
         context.getSystemService(Vibrator::class.java)
     }
-    if (vibrator?.hasVibrator() != true) return
+    if (vibrator == null || !vibrator.hasVibrator()) return
     runCatching { vibrator.vibrate(VibrationEffect.createOneShot(ms.toLong(), VibrationEffect.DEFAULT_AMPLITUDE)) }
 }
