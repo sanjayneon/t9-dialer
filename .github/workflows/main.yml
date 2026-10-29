@@ -13,15 +13,35 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+
+      - name: Pick the project to build
+        run: |
+          ZIP=$(ls -1 T9Dialer-v*.zip 2>/dev/null | sort -V | tail -n 1)
+          if [ -n "$ZIP" ]; then
+            echo "Building from $ZIP"
+            mkdir -p "$RUNNER_TEMP/src"
+            unzip -q "$ZIP" -d "$RUNNER_TEMP/src"
+            PROJECT=$(dirname "$(find "$RUNNER_TEMP/src" -name settings.gradle.kts -print -quit)")
+          else
+            echo "No project zip found, building the repository files"
+            PROJECT="$GITHUB_WORKSPACE"
+          fi
+          echo "PROJECT=$PROJECT" >> "$GITHUB_ENV"
+
       - name: Build APK
         run: |
+          cd "$PROJECT"
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
+
       - name: Name the APK after its version
         run: |
+          cd "$PROJECT"
           VERSION=$(grep -oP 'versionName = "\K[^"]+' app/build.gradle.kts)
+          echo "Version $VERSION"
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-          cp app/build/outputs/apk/debug/app-debug.apk "T9Dialer-v$VERSION.apk"
+          cp app/build/outputs/apk/debug/app-debug.apk "$GITHUB_WORKSPACE/T9Dialer-v$VERSION.apk"
+
       - uses: actions/upload-artifact@v4
         with:
           name: T9Dialer-v${{ env.VERSION }}
